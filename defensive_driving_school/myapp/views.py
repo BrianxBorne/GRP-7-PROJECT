@@ -1,6 +1,7 @@
 from django.shortcuts import redirect,render
 from .models import Student
 from .forms import StudentForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -19,6 +20,8 @@ def sidebar(request):
 def studentform(request):
     student=Student.objects.all()
     return render(request, "studentform.html", {'student':student})
+@login_required
+
 def studentlist(request):
     student=Student.objects.all()
     return render(request, "studentlist.html", {'student':student})
