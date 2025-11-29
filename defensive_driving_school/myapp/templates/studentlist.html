@@ -1,0 +1,38 @@
+{%extends 'sidebar.html'%}
+{%block content%}
+    <h1>Admin Panel</h1>
+    <h2>Student Record</h2>
+    <table class="table table-primary table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>full_name</th>
+                <th>email</th>
+                <th>age</th>
+                <th>course_start</th>
+                <th>course_end</th>
+                <th>phone_num</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for m in student %} 
+           <tr>
+            <td>{{ m.id }}</td>
+            <td>{{ m.full_name }}</td>
+            <td>{{ m.email }}</td>
+            <td>{{ m.age }}</td>
+            <td>{{ m.course_start }}</td>
+            <td>{{ m.course_end }}</td>
+            <td>{{ m.phone_num }}</td>
+            <td>
+                <a href="{% url 'update' m.id %}" class="btn btn-success">Update</a>
+                <a href="{% url 'delete' m.id %}" class="btn btn-danger">Delete</a>
+            </td>
+
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {%endblock%}

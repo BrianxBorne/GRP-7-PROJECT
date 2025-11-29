@@ -1,0 +1,16 @@
+{% extends 'sidebar.html'%}
+{%block content%}
+      <div class="container">
+      <h2 class="text-success">
+        {%if form.instance.pk%}UPDATE STUDENT {%else%} ADD STUDENT {%endif%}
+    </h2>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-danger">
+           {%if form.instance.pk%}UPDATE STUDENT {%else%} ADD STUDENT {%endif%}
+             </button>
+      </form>
+      </div>
+
+{%endblock%}
