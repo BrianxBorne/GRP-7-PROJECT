@@ -1,6 +1,6 @@
 from django.shortcuts import redirect,render
-from .models import Student
-from .forms import StudentForm
+from .models import Student, Register
+from .forms import StudentForm, RegisterForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -11,7 +11,16 @@ def about(request):
     return render(request, 'about.html')
 
 def register(request):
-    return render(request, 'register.html')
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('homepage')
+        # If form is invalid fall through to re-render with errors
+    else:
+        form = RegisterForm()
+
+    return render(request, 'register.html', {'form': form})
     
 def login(request):
     return render(request, 'login.html')
