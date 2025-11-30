@@ -1,6 +1,9 @@
+
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from .models import Profile, Student
+
 
 from . models import Student
 
@@ -14,3 +17,8 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model=User
         fields=['username','first_name','email','password1','password2']
+
+class ProfileImageForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile_pic'] 

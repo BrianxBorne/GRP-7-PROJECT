@@ -2,6 +2,8 @@ from django.shortcuts import redirect,render
 from .models import Student, Register
 from .forms import StudentForm, RegisterForm
 from django.contrib.auth.decorators import login_required,user_passes_test
+from .forms import ProfileImageForm
+
 
 # Create your views here.
 def home(request):
@@ -79,4 +81,18 @@ def delete_student(request,id):
     student=Student.objects.get(id=id)
     student.delete()
     return redirect('home')
+
+def profile(request):
+    profile = request.user.profile
+
+    if request.method == "POST":
+        form = ProfileImageForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+
+    else:
+        form = ProfileImageForm(instance=profile)
+
+    return render(request, 'profile.html', {'form': form, 'profile': profile})
  

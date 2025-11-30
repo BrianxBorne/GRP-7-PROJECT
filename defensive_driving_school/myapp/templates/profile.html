@@ -1,0 +1,10 @@
+
+<h2>My Profile</h2>
+
+<img src="{{ profile.profile_pic.url }}" width="150" height="150" style="border-radius: 50px;">
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Upload</button>
+</form>
