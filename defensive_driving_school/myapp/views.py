@@ -31,6 +31,7 @@ def studentform(request):
     return render(request, "studentform.html", {'student':student})
 @login_required
 
+
 def studentlist(request):
     student=Student.objects.all()
     return render(request, "studentlist.html", {'student':student})
