@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About{% endblock %}
+
+
+{% block content %}
+
+  <div class="container my-5">
+    <header class="d-flex align-items-center gap-3">
+      <img src="{% static 'images/favicon.png' %}" alt="Defensive Driving Academy Logo" class="logo">
+      <div>
+        <h1>About Defensive Driving Academy</h1>
+        <p class="lead text-muted">Where confidence meets the road. We teach safe, responsible driving with patient instructors and a modern, practical curriculum.</p>
+      </div>
+    </header>
+
+    <div class="row g-4">
+      <div class="col-12">
+        <div class="card mission p-4 text-white">
+          <h2>Our Mission</h2>
+          <p class="mb-0">To offer high-quality, comprehensive driving lessons that transform new or nervous drivers into confident, responsible road users. We combine practical vehicle control, defensive driving, and road-safety awareness in a supportive learning environment.</p>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card vision p-4 text-white">
+          <h3 class="mb-3">Our Vision</h3>
+          <p class="mb-0">To shape a generation of confident, well-trained drivers who make our roads safer — drivers who treat the road with skill, respect, and responsibility.</p>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card choose-us p-4">
+          <h3 class="mb-3">Why Choose Us</h3>
+          <p class="text-black mb-3">A friendly, modern approach to driver training that focuses on real skills and road safety.</p>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="feature p-3 rounded-3 cursor-pointer" onmouseover="showInfo('info1')" onmouseout="hideInfo('info1')">
+                <div class="ico bg-gradient rounded-3 d-flex align-items-center justify-content-center me-3">👨‍🏫</div>
+                <div class="feature-text">
+                  <strong>Experienced Instructors</strong>
+                  <div class="contact-info position-absolute bg-white rounded-3 p-2 shadow" id="info1">Patient, licensed trainers who explain clearly and calmly.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature p-3 rounded-3 cursor-pointer" onmouseover="showInfo('info2')" onmouseout="hideInfo('info2')">
+                <div class="ico bg-gradient rounded-3 d-flex align-items-center justify-content-center me-3">🕒</div>
+                <div class="feature-text">
+                  <strong>Flexible Hours</strong>
+                  <div class="contact-info position-absolute bg-white rounded-3 p-2 shadow" id="info2">Lessons at times that suit your life — weekdays, evenings, and weekends.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature p-3 rounded-3 cursor-pointer" onmouseover="showInfo('info3')" onmouseout="hideInfo('info3')">
+                <div class="ico bg-gradient rounded-3 d-flex align-items-center justify-content-center me-3">🚗</div>
+                <div class="feature-text">
+                  <strong>Comprehensive Training</strong>
+                  <div class="contact-info position-absolute bg-white rounded-3 p-2 shadow" id="info3">From basics to defensive driving and license preparation.</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="feature p-3 rounded-3 cursor-pointer" onmouseover="showInfo('info4')" onmouseout="hideInfo('info4')">
+                <div class="ico bg-gradient rounded-3 d-flex align-items-center justify-content-center me-3">💸</div>
+                <div class="feature-text">
+                  <strong>Affordable Packages</strong>
+                  <div class="contact-info position-absolute bg-white rounded-3 p-2 shadow" id="info4">Clear pricing and packages for different learner goals.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4">
+          <div>
+            <button class="btn btn-primary" onclick="location.href='#contact'">Book with Us</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="d-flex justify-content-between align-items-center mt-4" id="contact">
+      <small class="text-muted">© <span id="year"></span> Defensive Driving Academy. All rights reserved.</small>
+    </footer>
+  </div>
+
+
+{% endblock %}
