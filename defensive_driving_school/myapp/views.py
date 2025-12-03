@@ -80,7 +80,7 @@ def update_student(request,id):
 def delete_student(request,id):
     student=Student.objects.get(id=id)
     student.delete()
-    return redirect('home')
+    return redirect('sidebar')
 
 def profile(request):
     profile = request.user.profile
